@@ -43,6 +43,7 @@ fun main(): Unit = application {
         App()
     }
     student2Print()
+    student9Print()
 }
 
 // пробный коммит
@@ -53,5 +54,11 @@ private fun student2Print() {
     val y = 8
     val product = x * y
     println("Student 2: $x * $y = $product")
+}
+
+
+private fun student9Print() {
+    val randomNum = (1..100).random()
+    println("Student 9: Random number between 1 and 100: $randomNum")
 }
 
