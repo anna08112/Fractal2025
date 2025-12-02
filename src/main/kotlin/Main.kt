@@ -9,6 +9,18 @@ import androidx.compose.ui.window.application
 import app.ui.PaintPanel
 import app.ui.SelectionPanel
 import app.viewmodels.MainViewModel
+import kotlin.math.pow
+import app.fractal.IterationsCalculator // для использованяи функции вычисления кол-ва итераций при увеличении
+//библиотеки для работы с Text()
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.foundation.background
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Text
+import androidx.compose.foundation.layout.padding
 
 @Composable
 @Preview
@@ -31,6 +43,17 @@ fun App(viewModel: MainViewModel= MainViewModel()) {
                 viewModel::onStopSelecting,
                 viewModel::onSelecting,
             )
+            Text(
+                text = "Итераций: ${IterationsCalculator.getMaxIterations(viewModel.currentPlain)}",
+                color = Color.White,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .align(Alignment.TopStart)
+                    .padding(20.dp)
+                    .background(Color.Black.copy(0.7f), RoundedCornerShape(12.dp))
+                    .padding(16.dp)
+            )
         }
     }
 }
@@ -42,19 +65,5 @@ fun main(): Unit = application {
     ) {
         App()
     }
-    student2Print()
-}
-
-// пробный коммит
-// что-то еще
-// еще что то пропро
-//пвапвапавпвапвап55
-// пупупу2
-
-private fun student2Print() {
-    val x = 7
-    val y = 8
-    val product = x * y
-    println("Student 2: $x * $y = $product")
 }
 
